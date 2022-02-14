@@ -184,7 +184,7 @@ class EmbedManager(commands.Cog, name="Embed Manager"):
         embed = discord.Embed(color=color, title=title, description=description)
         await channel.send(embed=embed)
         
-    @_embed.command(name="simple")
+    @_embed.command(name="plain")
     @checks.has_permissions(PermissionLevel.MODERATOR)
     async def embed_plain(
         self,
