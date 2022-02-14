@@ -183,6 +183,21 @@ class EmbedManager(commands.Cog, name="Embed Manager"):
         color = color or self.bot.main_color
         embed = discord.Embed(color=color, title=title, description=description)
         await channel.send(embed=embed)
+        
+    @_embed.command(name="simple")
+    @checks.has_permissions(PermissionLevel.MODERATOR)
+    async def embed_plain(
+        self,
+        ctx: commands.Context,
+        channel: Optional[MessageableChannel],
+        *,
+        message,
+    ):
+        """
+        Post a plain message.
+        """
+        channel = channel or ctx.channel
+        await channel.send(message)
 
     @_embed.command(name="json", aliases=["fromjson", "fromdata"])
     @checks.has_permissions(PermissionLevel.MODERATOR)
